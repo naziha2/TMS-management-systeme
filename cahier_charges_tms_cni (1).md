@@ -43,12 +43,6 @@ Mettre en place une plateforme centralisée pour gérer l'ensemble des formation
 - Génération de certificats
 - Reporting et tableaux de bord
 
-## 3.2 Hors périmètre (pour cette version)
-
-- Gestion financière et facturation
-- Gestion RH complète (carrières, paie)
-- Formation e-learning avancée (LMS complet)
-- Gestion des fournisseurs externes complexe
 
 ---
 
@@ -57,7 +51,7 @@ Mettre en place une plateforme centralisée pour gérer l'ensemble des formation
 ## 4.1 Super administrateur
 
 - Gère le système, les comptes et les rôles
-- Configure les paramètres globaux
+
 
 ## 4.2 Gestionnaire formation
 
@@ -67,15 +61,17 @@ Mettre en place une plateforme centralisée pour gérer l'ensemble des formation
 
 ## 4.3 Formateur
 
-- Anime les sessions
+- Consulter planing 
 - Marque les présences
 - Saisit les évaluations
-
+- deposer support cours 
 ## 4.4 Participant
 
 - S'inscrit aux formations
 - Participe aux sessions
 - Consulte ses résultats et certificats
+- télécharger support 
+
 
 ---
 
