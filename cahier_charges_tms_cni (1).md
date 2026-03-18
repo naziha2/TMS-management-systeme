@@ -51,10 +51,6 @@ Mettre en place une plateforme centralisée pour gérer l'ensemble des formation
 ## 4.1 Super administrateur
 
 - Gère le système, les comptes et les rôles
-
-
-## 4.2 Gestionnaire formation
-
 - Crée les formations et planifie les sessions
 - Valide les inscriptions
 - Suit les résultats et la certification
@@ -79,19 +75,18 @@ Mettre en place une plateforme centralisée pour gérer l'ensemble des formation
 
 ## 5.1 Création d'une formation
 
-- Le gestionnaire crée une formation (titre, objectifs, durée, niveau)
+- Le gestionnaire crée une formation (titre, objectifs, durée, depatment )
 - La formation est enregistrée au statut Brouillon
 
 ## 5.2 Planification d'une session
 
 - Le gestionnaire crée une session liée à une formation
-- Il définit dates, lieu, formateur, capacité
+- Il définit dates, lieu, formateur
 - La session passe au statut Planifiée
 
 ## 5.3 Inscriptions et validation
 
 - Le participant demande l'inscription
-- Le gestionnaire approuve ou rejette
 - Si la capacité est atteinte, le participant est mis en liste d'attente
 
 ## 5.4 Déroulement et présence
@@ -219,7 +214,7 @@ Contenu : Nom participant, Formation, Date, Signature, Référence
 - date_fin
 - lieu
 - capacité
-- statut
+- mode de fomrmation (ptresencielle enlignibe)
 
 ### Inscription
 
@@ -310,3 +305,140 @@ Contenu : Nom participant, Formation, Date, Signature, Référence
 - Enquête de satisfaction après formation
 - Connexion SSO (Active Directory) si disponible
 - API simple pour intégration avec d'autres outils internes
+
+
+# diagrame cas dutiliastion
+
+🎭 1. Super Administrateur (Admin)
+
+👉 C’est l’acteur principal qui gère tout le système.
+
+🔐 Gestion des utilisateurs
+
+Créer utilisateur
+
+Modifier utilisateur
+
+Désactiver utilisateur
+
+Attribuer rôles
+
+Réinitialiser mot de passe
+
+📚 Gestion des formations
+
+Créer formation
+
+Modifier formation
+
+Supprimer formation
+
+Publier formation
+
+📅 Gestion des sessions
+
+Créer session
+
+Modifier session
+
+Annuler session
+
+Affecter formateur
+
+📝 Gestion des inscriptions
+
+Valider inscription
+
+Rejeter inscription
+
+Notifier utilisateur (automatique après validation/rejet)
+
+📊 Reporting & Dashboard
+
+Voir statistiques
+
+Suivre performance formateur
+
+Taux participation
+
+Taux réussite
+
+⚙️ Paramétrage
+
+Configurer seuil réussite
+
+Configurer seuil présence
+
+Gérer départements
+
+Configurer modèle certificat
+
+👨‍🏫 2. Formateur (Trainer)
+
+👉 Responsable pédagogique (formation et suivi des participants)
+
+📅 Sessions
+
+Consulter planning
+
+🧾 Présences
+
+Marquer présence
+
+(Calcul taux présence → automatique après marquage)
+
+📊 Évaluations
+
+Saisir note
+
+📂 Supports de formation
+
+Déposer support
+
+👨‍🎓 3. Participant (User)
+
+👉 L’utilisateur final (stagiaire / employé)
+
+📚 Formations
+
+Consulter catalogue
+
+📝 Inscriptions
+
+Demander inscription
+
+(Gérer liste d’attente → automatique si session pleine)
+
+📊 Résultats
+
+Consulter résultats
+
+🎓 Certificats
+
+Télécharger certificat (si validé)
+
+📂 Supports
+
+Télécharger support
+
+🔗 Relations importantes (logique métier)
+
+👉 Voici les règles intelligentes dans ton système :
+
+✔️ Demander inscription → (extend) → Liste d’attente
+
+✔️ Valider / Rejeter inscription → (include) → Notification
+
+✔️ Générer certificat → (include) → Vérifier critères
+
+✔️ Générer certificat → (extend) → Télécharger certificat
+
+✔️ Marquer présence → (include) → Calcul taux présence
+
+💡 Résumé simple (important pour soutenance)
+
+Admin = cerveau du système
+
+Formateur = gestion pédagogique
+
+Participant = utilisateur final
